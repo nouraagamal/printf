@@ -92,7 +92,7 @@ int _printf(const char *format, ...)
 	va_list list;
 
 	va_start(list, format);
-	if (format != NULL || format[0] == '\0')
+	if (format == NULL || format[0] == '\0')
 		return (-1);
 	for (i = 0; format[i] != '\0'; i++)
 	{
