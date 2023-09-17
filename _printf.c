@@ -58,7 +58,7 @@ int print_di(int num)
 		_putchar('-');
 		_putchar(2);
 		print_di(147483648);
-		return(1);
+		return (1);
 	}
 	else if (num < 0)
 	{
@@ -74,7 +74,6 @@ int print_di(int num)
 	else if (num < 10)
 	{
 		_putchar(num + '0');
-
 	}
 	return (1);
 }
@@ -89,55 +88,43 @@ int print_di(int num)
 int _printf(const char *format, ...)
 {
 	char ch, *str;
-	int i, c = 0;
-	int num;
+	int i, c = 0, num;
 	va_list list;
-	va_start(list, format);
 
+	va_start(list, format);
 	if (format != NULL || format[0] == '\0')
-	{
 		return (-1);
-	}
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if(format[i] == '%')
+		if (format[i] == '%')
 		{
-			i = i + 1;
-			if (format[i] == 'c')
+			if (format[i + 1] == 'c')
 			{
-				ch = va_arg(list, int);
-				c += _putchar(ch);
+				ch = va_arg(list, int), c += _putchar(ch);
 			}
-			else if (format[i] == 's')
+			else if (format[i + 1] == 's')
 			{
-				str = va_arg(list, char *);
-				c += print_s(str);
-			else if (format[i] == 'd' || format[i] == 'i')
+				str = va_arg(list, char *), c += print_s(str);
+			}
+			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 			{
 				num = va_arg(list, int);
 				if (num < 0)
-					c++;
-				c += len(num);
-				print_di(num);
+					c++, c += len(num), print_di(num);
 			}
-			else if (format[i] == '%')
+			else if (format[i + 1] == '%')
 			{
-				_putchar('%');
-				c++;
+				_putchar('%'), c++;
 			}
 			else
 			{
-				_putchar(*format);
-				c++;
+				_putchar(*format), c++;
 			}
 			format++;
 		}
-		else 
+		else
 		{
-			_putchar(*format);
-			format++;
-			c++;
+			_putchar(*format), format++, c++;
 		}
-	}
-	return (c);
+	} return (c);
 }
