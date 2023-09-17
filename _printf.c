@@ -12,8 +12,8 @@ int print_s(char *s)
 
 	while (s[i])
 	{
-	_putchar(s[i]);
-	i++;
+		_putchar(s[i]);
+		i++;
 	}
 	return (i);
 }
@@ -91,28 +91,6 @@ int _printf(const char *format, ...)
 	int i, c = 0, num;
 	va_list list;
 
-<<<<<<< HEAD
-        if (format == NULL || format[0] == '\0')
-        {
-                return (-1);
-        }
-        for (i = 0; format[i] != '\0'; i++)
-        {
-                if(format[i] == '%')
-                {
-                        i = i + 1;
-                        if (format[i] == 'c')
-                        {
-                                ch = va_arg(list, int);
-                                c += _putchar(ch);
-                        }
-                        else if (format[i] == 's')
-                        {
-                                str = va_arg(list, char *);
-                                c += print_s(str);
-                        }
-			else if (format[i] == 'd' || format[i] == 'i')
-=======
 	va_start(list, format);
 	if (format == NULL || format[0] == '\0')
 		return (-1);
@@ -129,7 +107,6 @@ int _printf(const char *format, ...)
 				str = va_arg(list, char *), c += print_s(str);
 			}
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
->>>>>>> 8fe1470c2da16a00c436dac0ac8f5bcb5b07acac
 			{
 				num = va_arg(list, int);
 				if (num < 0)
