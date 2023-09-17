@@ -8,20 +8,19 @@
 
 int print_s(char *s)
 {
-        int i = 0;
+	int i = 0;
 
-        while (s[i])
-        {
-                _putchar(s[i]);
-                i++;
-        }
-        return (i);
+	while (s[i])
+	{
+	_putchar(s[i]);
+	i++;
+	}
+	return (i);
 }
 
 /**
  * _putchar - writes the character c to stdout
  * @c: The character to print
- *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
@@ -43,6 +42,7 @@ int len(int num)
 		return (0);
 	return (1 + len(num / 10));
 }
+
 /**
  * print_di - prints numbers.
  * @num: int.
@@ -58,7 +58,7 @@ int print_di(int num)
 		_putchar('-');
 		_putchar(2);
 		print_di(147483648);
-		return(1);
+		return (1);
 	}
 	else if (num < 0)
 	{
@@ -74,7 +74,6 @@ int print_di(int num)
 	else if (num < 10)
 	{
 		_putchar(num + '0');
-
 	}
 	return (1);
 }
@@ -88,12 +87,11 @@ int print_di(int num)
 
 int _printf(const char *format, ...)
 {
-        char ch, *str;
-        int i, c = 0;
-	int num;
-        va_list list;
-        va_start(list, format);
+	char ch, *str;
+	int i, c = 0, num;
+	va_list list;
 
+<<<<<<< HEAD
         if (format == NULL || format[0] == '\0')
         {
                 return (-1);
@@ -114,30 +112,42 @@ int _printf(const char *format, ...)
                                 c += print_s(str);
                         }
 			else if (format[i] == 'd' || format[i] == 'i')
+=======
+	va_start(list, format);
+	if (format != NULL || format[0] == '\0')
+		return (-1);
+	for (i = 0; format[i] != '\0'; i++)
+	{
+		if (format[i] == '%')
+		{
+			if (format[i + 1] == 'c')
+			{
+				ch = va_arg(list, int), c += _putchar(ch);
+			}
+			else if (format[i + 1] == 's')
+			{
+				str = va_arg(list, char *), c += print_s(str);
+			}
+			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
+>>>>>>> 8fe1470c2da16a00c436dac0ac8f5bcb5b07acac
 			{
 				num = va_arg(list, int);
 				if (num < 0)
-					c++;
-				c += len(num);
-				print_di(num);
+					c++, c += len(num), print_di(num);
 			}
-                        else if (format[i] == '%')
-                        {
-                                _putchar('%');
-                                c++;
-                        }
-                        else
-                        {
-                                _putchar(*format);
-                                c++;
-                        } format++;
-                }
-		else 
-		{
-			_putchar(*format);
+			else if (format[i + 1] == '%')
+			{
+				_putchar('%'), c++;
+			}
+			else
+			{
+				_putchar(*format), c++;
+			}
 			format++;
-			c++;
 		}
-        }
-        return (c);
+		else
+		{
+			_putchar(*format), format++, c++;
+		}
+	} return (c);
 }

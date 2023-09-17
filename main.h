@@ -10,6 +10,7 @@
 int print_s(char *s);
 int _putchar(char c);
 int _printf(const char *format, ...);
-
+int len(int num);
+int print_di(int num);
 
 #endif
