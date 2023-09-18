@@ -26,6 +26,7 @@ int print_i(va_list fn);
 int print_c(va_list fn);
 int print_cs(char *str);
 int print_s(va_list fn);
+int print_b(va_list fn);
 
 
 #endif
