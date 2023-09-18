@@ -1,26 +1,26 @@
 #include "main.h"
 
 /**
- *_flag - extension of _printf
+ *fl - to check the specifier.
  *@j: j
  *Return: 0
  */
 
-int (*_flag(char j))(va_list)
+int (*fl(char j))(va_list)
 {
 	int i = 0;
-	spec arr[] = {
+	sp arr[] = {
 
-		{"d", int_print_d},
-		{"i", int_print_i},
-		{"c", int_print_c},
-		{"s", int_print_s},
+		{"d", print_d},
+		{"i", print_i},
+		{"c", print_c},
+		{"s", print_s},
 	};
 
-	while (arr[i].valid)
+	while (arr[i].x)
 	{
-		if (j == arr[i].valid[0])
-			return (arr[i].f);
+		if (j == arr[i].x[0])
+			return (arr[i].fn);
 		i++;
 	}
 	return (0);

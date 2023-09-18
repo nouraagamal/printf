@@ -9,23 +9,23 @@
 
 /**
  *struct specifier - struct
- *@valid: char
- *@f: f
+ *@x: char
+ *@fn: fun.
  */
 
 typedef struct specifier
 {
-	char *valid;
-	int (*f)(va_list);
-} spec;
+	char *x;
+	int (*fn)(va_list);
+} sp;
 int _printf(const char *format, ...);
 int _putchar(char c);
-int (*_flag(char j))(va_list);
-int int_print_d(va_list f);
-int int_print_i(va_list f);
-int int_print_c(va_list f);
-int int_print_cs(char *str);
-int int_print_s(va_list f);
+int (*fl(char j))(va_list);
+int print_d(va_list fn);
+int print_i(va_list fn);
+int print_c(va_list fn);
+int print_cs(char *str);
+int print_s(va_list fn);
 
 
 #endif

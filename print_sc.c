@@ -1,33 +1,29 @@
 #include "main.h"
 
-int int_print_c(va_list f);
-int int_print_s(va_list f);
-int int_print_cs(char *s);
-
 /**
- *int_print_c - print char
- *@f: char to print
- *Return: char
+ *print_c - print char
+ *@fn: char.
+ *Return: char.
  */
 
-int int_print_c(va_list f)
+int print_c(va_list fn)
 {
-	_putchar(va_arg(f, int));
+	_putchar(va_arg(fn, int));
 	return (1);
 }
 
 /**
- *int_print_s - print string
- *@f: string to print
- *Return: string
+ *print_s - print string
+ *@fn: string.
+ *Return: str.
  */
 
-int int_print_s(va_list f)
+int print_s(va_list fn)
 {
 	int i;
 	char *s;
 
-	s = va_arg(f, char *);
+	s = va_arg(fn, char *);
 
 	if (s == NULL)
 	{
@@ -42,12 +38,12 @@ int int_print_s(va_list f)
 	return (i);
 }
 /**
- *int_print_cs - print
- *@s: s
- *Return: f
+ *print_cs - print
+ *@s: s.
+ *Return: int.
  */
 
-int int_print_cs(char *s)
+int print_cs(char *s)
 {
 	int i = 0;
 

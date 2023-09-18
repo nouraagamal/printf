@@ -1,17 +1,17 @@
 #include "main.h"
 /**
- *int_print_d - print base 10
- *@f: decimal to print
- *Return: base 10
+ *print_d - print int (base 10).
+ *@fn: decimal to print
+ *Return: int (base 10).
  */
 
-int int_print_d(va_list f)
+int print_d(va_list fn)
 {
 	unsigned int abs, a, count1, count;
 	int j;
 
 	count = 0;
-	j = va_arg(f, int);
+	j = va_arg(fn, int);
 	if (j < 0)
 	{
 		abs = (j * -1);
@@ -36,12 +36,12 @@ int int_print_d(va_list f)
 }
 
 /**
- *int_print_i - print integer
- *@f: int to print
- *Return: int
+ *print_i - print int.
+ *@fn: int.
+ *Return: int.
  */
 
-int int_print_i(va_list f)
+int print_i(va_list fn)
 {
-	return (int_print_d(f));
+	return (print_d(fn));
 }

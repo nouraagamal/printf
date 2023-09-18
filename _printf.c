@@ -9,13 +9,13 @@
 
 int _printf(const char *format, ...)
 {
-	int (*flag)(va_list);
+	int (*_fl)(va_list);
 	int i = 0, count = 0;
-	va_list f;
+	va_list fn;
 
 	if (format != NULL)
 	{
-		va_start(f, format);
+		va_start(fn, format);
 
 		if (format[0] == '%' && format[1] == '\0')
 			return (-1);
@@ -31,9 +31,9 @@ int _printf(const char *format, ...)
 				}
 				else
 				{
-					flag = _flag(format[i + 1]);
-					if (flag)
-						count += flag(f);
+					_fl = fl(format[i + 1]);
+					if (_fl)
+						count += _fl(fn);
 					else
 						count = _putchar(format[i]) + _putchar(format[i + 1]);
 					i = i + 2;
@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 				count += _putchar(format[i]), i++;
 			}
 		}
-		va_end(f);
+		va_end(fn);
 		return (count);
 	}
 	else
