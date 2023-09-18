@@ -1,17 +1,5 @@
 #include "main.h"
 
-
-/**
- *struct specifier - struct
- *@valid: char
- *@f: f
- */
-
-typedef struct specifier
-{
-        char *valid;
-        int (*f)(va_list);
-} spec;
 /**
  *_flag - extension of _printf
  *@j: j

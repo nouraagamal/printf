@@ -28,4 +28,4 @@ int int_print_cs(char *str);
 int int_print_s(va_list f);
 
 
-#endif /* PRINTF */
+#endif
