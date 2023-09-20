@@ -20,6 +20,7 @@ int (*fl(char j))(va_list)
 		{"o", print_o},
 		{"x", print_x},
 		{"X", print_X},
+		{"S", print_S},
 	};
 
 	while (arr[i].x)

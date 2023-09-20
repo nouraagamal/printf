@@ -10,7 +10,7 @@ int print_u(va_list fn)
 	int s = 1, end_u;
 	int i, len = 0;
 	unsigned int num;
-	
+
 	num = va_arg(fn, unsigned int);
 	while (num / s > 9)
 		s *= 10;

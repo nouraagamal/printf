@@ -31,6 +31,7 @@ int print_u(va_list fn);
 int print_o(va_list fn);
 int print_x(va_list fn);
 int print_X(va_list fn);
+int print_S(va_list fn);
 
 
 #endif
